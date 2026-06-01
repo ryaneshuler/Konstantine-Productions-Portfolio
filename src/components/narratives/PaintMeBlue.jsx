@@ -287,16 +287,16 @@ function PaintMeBlue() {
       >
         <div className="pmb-credits-overlay">
           <h2 className="pmb-credits-header">KEY CREDITS</h2>
-          <p className="pmb-credits-individual">Written &amp; Directed by: Ari Veach</p>
-          <p className="pmb-credits-individual">Produced by: Ari Veach, Ryan Shuler</p>
-          <p className="pmb-credits-individual">Starring: Melannie Vásquez Lara, Taylor Petracek</p>
-          <p className="pmb-credits-individual">Director of Photography: Nathan Krauss</p>
-          <p className="pmb-credits-individual">Production Designer: Anna Grigo</p>
-          <p className="pmb-credits-individual">Music by: Katherine Beggs</p>
-          <p className="pmb-credits-individual">Choreographer: Ryan Shuler</p>
-          <p className="pmb-credits-individual">Edited by: Taylor Petracek</p>
-          <p className="pmb-credits-individual">Sound Design: Taylor Bradshaw</p>
-          <p className="pmb-credits-individual">Colorist: Ryan Berger</p>
+          <p className="pmb-credits-individual"><em>Written &amp; Directed by:</em> Ari Veach</p>
+          <p className="pmb-credits-individual"><em>Produced by:</em> Ari Veach, Ryan Shuler</p>
+          <p className="pmb-credits-individual"><em>Starring:</em> Melannie Vásquez Lara, Taylor Petracek</p>
+          <p className="pmb-credits-individual"><em>Director of Photography:</em> Nathan Krauss</p>
+          <p className="pmb-credits-individual"><em>Production Designer:</em> Anna Grigo</p>
+          <p className="pmb-credits-individual"><em>Music by:</em> Katherine Beggs</p>
+          <p className="pmb-credits-individual"><em>Choreographer:</em> Ryan Shuler</p>
+          <p className="pmb-credits-individual"><em>Edited by:</em> Taylor Petracek</p>
+          <p className="pmb-credits-individual"><em>Sound Design:</em> Taylor Bradshaw</p>
+          <p className="pmb-credits-individual"><em>Colorist:</em> Ryan Berger</p>
         </div>
       </div>
 

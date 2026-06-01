@@ -20,6 +20,7 @@ function RememberTomorrow() {
   const awardsImgRef = useRef(null)
   const [awardsVisible, setAwardsVisible] = useState(false)
   const [awardsLightbox, setAwardsLightbox] = useState(false)
+  const [posterLightbox, setPosterLightbox] = useState(false)
 
   useEffect(() => {
     const el = awardsImgRef.current
@@ -38,6 +39,13 @@ function RememberTomorrow() {
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   }, [awardsLightbox])
+
+  useEffect(() => {
+    if (!posterLightbox) return
+    const onKey = (e) => { if (e.key === 'Escape') setPosterLightbox(false) }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [posterLightbox])
 
   const closeLightbox = () => setLightboxIndex(null)
   const lightboxPrev = () => setLightboxIndex(i => (i - 1 + galleryImages.length) % galleryImages.length)
@@ -63,8 +71,8 @@ function RememberTomorrow() {
         style={{ backgroundImage: "url('/Media/Gallery/Narratives/RT/Narratives_RT_Banner_01.webp')" }}
       >
         <div className="rt-banner-text">
-          <h1 className="rt-banner-title">REMEMBER/TOMORROW</h1>
-          <p className="rt-banner-subtitle">(Short Film, 2019)</p>
+          <h1 className="rt-banner-title">REMEMBER / TOMORROW</h1>
+          <p className="rt-banner-subtitle">(Short Film, 2020)</p>
         </div>
       </div>
 
@@ -122,6 +130,8 @@ function RememberTomorrow() {
           className="rt-poster"
           src="/Media/Gallery/Narratives/RT/Narratives_RT_Gallery_01.webp"
           alt="Remember/Tomorrow Official Poster"
+          onClick={() => setPosterLightbox(true)}
+          style={{ cursor: 'pointer' }}
         />
       </section>
 
@@ -162,15 +172,29 @@ function RememberTomorrow() {
       >
         <div className="rt-credits-overlay">
           <h2 className="rt-section-header rt-overlay-header">KEY CREDITS</h2>
-          <p className="rt-credits-individual">Directed &amp; Produced by: Ari Veach, Ryan Shuler</p>
-          <p className="rt-credits-individual">Written by: Ari Veach</p>
-          <p className="rt-credits-individual">Starring: Ari Veach, Marielle Renée Rousseau</p>
-          <p className="rt-credits-individual">Director of Photography: Nathan Krauss</p>
-          <p className="rt-credits-individual">Editing &amp; VFX: Ryan Shuler</p>
-          <p className="rt-credits-individual">Original Music: Jordan Balaber</p>
-          <p className="rt-credits-individual">Sound Design: Taylor Bradshaw</p>
+          <p className="rt-credits-individual"><em>Directed &amp; Produced by:</em> Ari Veach, Ryan Shuler</p>
+          <p className="rt-credits-individual"><em>Written by:</em> Ari Veach</p>
+          <p className="rt-credits-individual"><em>Starring:</em> Ari Veach, Marielle Renée Rousseau</p>
+          <p className="rt-credits-individual"><em>Director of Photography:</em> Nathan Krauss</p>
+          <p className="rt-credits-individual"><em>Editing &amp; VFX:</em> Ryan Shuler</p>
+          <p className="rt-credits-individual"><em>Original Music:</em> Jordan Balaber</p>
+          <p className="rt-credits-individual"><em>Sound Design:</em> Taylor Bradshaw</p>
         </div>
       </div>
+
+      {/* Poster lightbox */}
+      {posterLightbox && (
+        <div className="lightbox-overlay" onClick={() => setPosterLightbox(false)}>
+          <button className="lightbox-close" onClick={() => setPosterLightbox(false)} aria-label="Close">&times;</button>
+          <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+            <img
+              className="lightbox-img"
+              src="/Media/Gallery/Narratives/RT/Narratives_RT_Gallery_01.webp"
+              alt="Remember/Tomorrow Official Poster"
+            />
+          </div>
+        </div>
+      )}
 
       {/* Awards lightbox */}
       {awardsLightbox && (

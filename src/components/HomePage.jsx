@@ -97,10 +97,10 @@ function HomePage() {
           </div>
         </div>
         <div className="below-demo">
-          <Link to="/commercials"><button>COMMERCIALS</button></Link>
           <Link to="/narratives"><button>NARRATIVES</button></Link>
-          <Link to="/music-videos"><button>MUSIC VIDEOS</button></Link>
+          <Link to="/commercials"><button>COMMERCIALS</button></Link>
           <Link to="/documentaries"><button>DOCUMENTARIES</button></Link>
+          <Link to="/music-videos"><button>MUSIC VIDEOS</button></Link>
         </div>
       </div>
 

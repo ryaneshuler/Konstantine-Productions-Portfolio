@@ -222,6 +222,113 @@ nav a:focus {
 	margin-right: 75px;
 }
 
+@media (max-width: 1100px) {
+  .nav-left-section {
+    gap: 1.2em;
+    margin-right: 2em;
+  }
+  .nav-right-section {
+    gap: 1.2em;
+    margin-left: 2em;
+  }
+  .KP-logo {
+    width: 160px;
+    height: 160px;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+}
+
+/* Hamburger — hidden on desktop */
+.hamburger {
+  display: none;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  nav {
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 16px;
+  }
+
+  .nav-left-section,
+  .nav-right-section {
+    display: none;
+  }
+
+  .KP-logo {
+    width: 90px;
+    height: 90px;
+    margin: 0;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 100;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #000;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .hamburger--open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger--open span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger--open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: -16px;
+    right: -16px;
+    background: #fff;
+    border-top: 2px solid #496e2b;
+    z-index: 99;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  }
+
+  .mobile-menu a {
+    padding: 14px 24px;
+    color: #000;
+    text-decoration: none;
+    font-family: 'Abel', Arial, sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .mobile-menu a:hover {
+    color: #496e2b;
+    background: #f9f9f9;
+  }
+}
+
 .dropdown {
   position: relative; /* contains the absolute dropdown-content */
 }
@@ -317,7 +424,7 @@ nav a:focus {
 }
 
 .vimeo-wrapper {
-  width: min(1200px, 100%);
+  width: min(900px, 100%);
   margin: 0 auto;
   aspect-ratio: 16 / 9;
 }
@@ -335,7 +442,7 @@ nav a:focus {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  width: min(1375px, 100%);
+  width: min(1000px, 100%);
   margin: 0 auto;
   box-sizing: border-box;
 }
@@ -343,10 +450,10 @@ nav a:focus {
 .below-demo button {
   background-color: #ffffff;
   color: #496e2b;
-  border: 3px solid #496e2b;
+  border: 2px solid #496e2b;
   border-radius: 5px;
   transition: .2s;
-  font-size: 1.2em;
+  font-size: .8em;
   font-weight: 700;
   padding: .8em 2em;
   cursor: pointer;
@@ -641,8 +748,8 @@ nav a:focus {
   background: transparent;
   color: #fff;
   border: 2px solid #fff;
-  font-family: 'Abel', Arial, sans-serif;
-  font-size: clamp(20px, 1.4vw, 16px);
+  font-family: 'Futura-PT', Arial, sans-serif;
+  font-size: clamp(16px, 1.4vw, 20px);
   letter-spacing: 0.12em;
   padding: 0.5em 1.8em;
   border-radius: 10px;
@@ -1258,7 +1365,7 @@ a:has(.about-btn) {
 
 .sustain-practice-items {
   font-size: clamp(15px, 1.1vw, 18px);
-  font-family: Arial, sans-serif;
+  font-family: 'Futura-PT', Arial, sans-serif;
   line-height: 1.65;
   margin: 0;
   padding-left: 20px;
@@ -1291,7 +1398,7 @@ a:has(.about-btn) {
   position: relative;
   z-index: 2;
   color: #fff;
-  font-size: clamp(2rem, 7vw, 6rem);
+  font-size: clamp(2rem, 7vw, 4rem);
   font-family: 'Komu B', Arial, sans-serif;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -1456,17 +1563,17 @@ a:has(.about-btn) {
 }
 
 .pmb-banner-title {
-  font-size: clamp(28px, 7vw, 80px);
+  font-size: clamp(24px, 7vw, 60px);
   margin: 0;
   letter-spacing: 0.1em;
   text-shadow: 0 4px 20px rgba(0,0,0,0.7);
 }
 
 .pmb-banner-subtitle {
-  font-size: clamp(14px, 2.5vw, 28px);
+  font-size: clamp(10px, 2.5vw, 20px);
   margin: 0.3em 0 0;
-  font-family: 'Abel', Arial, sans-serif;
-  font-weight: 400;
+  font-family: 'Futura-PT', Arial, sans-serif;
+  font-weight: 800;
   letter-spacing: 0.08em;
   text-shadow: 0 3px 12px rgba(0,0,0,0.6);
 }
@@ -1626,7 +1733,7 @@ a:has(.about-btn) {
 
 .pmb-credits-individual {
   color: #fff;
-  font-family: Arial, sans-serif;
+  font-family: 'futura-pt', 'Futura', 'Century Gothic', Arial, sans-serif;
   font-weight: 700;
   font-size: clamp(14px, 1.5vw, 19px);
   line-height: 2.2;
@@ -1701,17 +1808,17 @@ a:has(.about-btn) {
 }
 
 .rt-banner-title {
-  font-size: clamp(28px, 7vw, 80px);
+  font-size: clamp(24px, 7vw, 60px);
   margin: 0;
   letter-spacing: 0.1em;
   text-shadow: 0 4px 20px rgba(0,0,0,0.7);
 }
 
 .rt-banner-subtitle {
-  font-size: clamp(14px, 2.5vw, 28px);
+  font-size: clamp(10px, 2.5vw, 20px);
   margin: 0.3em 0 0;
-  font-family: 'Abel', Arial, sans-serif;
-  font-weight: 400;
+  font-family: 'Futura-PT', Arial, sans-serif;
+  font-weight: 800;
   letter-spacing: 0.08em;
   text-shadow: 0 3px 12px rgba(0,0,0,0.6);
 }
@@ -1847,11 +1954,11 @@ a:has(.about-btn) {
 
 .rt-credits-individual {
   color: #fff;
-  font-family: 'Abel', Arial, sans-serif;
+  font-family: 'futura-pt', 'Futura', 'Century Gothic', Arial, sans-serif;
+  font-weight: 700;
   font-size: clamp(14px, 1.5vw, 19px);
-  line-height: 2;
+  line-height: 2.2;
   margin: 0;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
 @media (max-width: 700px) {
