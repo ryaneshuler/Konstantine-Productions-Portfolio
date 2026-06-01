@@ -168,7 +168,7 @@ function HomePage() {
           role="img"
           aria-label="Let's Collaborate"
         />
-        <a href="/contact" className="cta-button">LET'S COLLABORATE</a>
+        <Link to="/contact" className="cta-button">LET'S COLLABORATE</Link>
       </div>
       {/* Lightbox */}
       {lightboxIndex !== null && (
