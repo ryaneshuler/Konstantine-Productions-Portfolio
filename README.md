@@ -1,16 +1,46 @@
-# React + Vite
+# Konstantine Productions — Official Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfolio and company website for [Konstantine Productions](https://www.konstantineproductions.com), a Brooklyn-based film and video production company focused on sustainable filmmaking.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React** (Vite)
+- **React Router** — client-side routing
+- **EmailJS** — contact form email delivery
+- **CSS** — custom animations (parallax, wipe reveals, fade-ins), no CSS framework
 
-## React Compiler
+## Pages
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Route | Page |
+|---|---|
+| `/` | Home |
+| `/about` | About Us |
+| `/sustainability` | Sustainable Practices |
+| `/gallery` | Photo Gallery |
+| `/contact` | Contact |
+| `/commercials` | Commercials |
+| `/music-videos` | Music Videos |
+| `/documentaries` | Branded Documentaries |
+| `/narratives` | Narratives |
+| `/narratives/:film` | Individual narrative film pages |
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+npm run dev
+```
+
+## Contact Form Setup
+
+The contact form uses [EmailJS](https://www.emailjs.com). Credentials are stored directly in `src/components/ContactPage.jsx`. To re-enable or update:
+
+1. Log into emailjs.com
+2. Confirm your Service ID, Template ID, and Public Key
+3. Update the constants at the top of `ContactPage.jsx`
+
+## Notes
+
+- All video content is hosted on Vimeo and embedded via iframe — no video files are stored in this repository.
+- Media assets (images) live in `public/Media/`.
+- Custom font (Komu B) is loaded from `public/fonts/`.
