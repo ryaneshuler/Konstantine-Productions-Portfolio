@@ -25,7 +25,7 @@ function OWNarrativesPage() {
       <div className="ow-header"><p><strong>NARRATIVES</strong></p></div>
 
       {/* Paint Me Blue */}
-      <div className="ow-project">
+      <div className="ow-project ow-project--fade">
         <Link to="/narratives/paint-me-blue" className="ow-banner-link">
           <div className="ow-banner-wrap">
             <div className="ow-banner-text">
@@ -37,7 +37,7 @@ function OWNarrativesPage() {
       </div>
 
       {/* Mac N Beth */}
-      <div className="ow-project">
+      <div className="ow-project ow-project--fade">
         <Link to="/narratives/mac-n-beth" className="ow-banner-link">
           <div className="ow-banner-wrap">
             <div className="ow-banner-text">
@@ -49,7 +49,7 @@ function OWNarrativesPage() {
       </div>
 
       {/* Remember/Tomorrow */}
-      <div className="ow-project">
+      <div className="ow-project ow-project--fade">
         <Link to="/narratives/remember-tomorrow" className="ow-banner-link">
           <div className="ow-banner-wrap">
             <div className="ow-banner-text">
@@ -61,7 +61,7 @@ function OWNarrativesPage() {
       </div>
 
       {/* Awakening */}
-      <div className="ow-project">
+      <div className="ow-project ow-project--fade">
         <Link to="/narratives/awakening" className="ow-banner-link">
           <div className="ow-banner-wrap">
             <div className="ow-banner-text">
@@ -73,7 +73,7 @@ function OWNarrativesPage() {
       </div>
 
       {/* Kissing Other People */}
-      <div className="ow-project">
+      <div className="ow-project ow-project--fade">
         <Link to="/narratives/kissing-other-people" className="ow-banner-link">
           <div className="ow-banner-wrap">
             <div className="ow-banner-text">
@@ -85,7 +85,7 @@ function OWNarrativesPage() {
       </div>
 
       {/* I Want You Baby */}
-      <div className="ow-project">
+      <div className="ow-project ow-project--fade">
         <Link to="/narratives/i-want-you-baby" className="ow-banner-link">
           <div className="ow-banner-wrap">
             <div className="ow-banner-text">
@@ -97,7 +97,7 @@ function OWNarrativesPage() {
       </div>
 
       {/* Salty Corn */}
-      <div className="ow-project">
+      <div className="ow-project ow-project--fade">
         <Link to="/narratives/salty-corn" className="ow-banner-link">
           <div className="ow-banner-wrap">
             <div className="ow-banner-text">

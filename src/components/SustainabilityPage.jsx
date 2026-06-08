@@ -1,10 +1,33 @@
+/*
+  Swap new image for hero image, have that fade in
+  Have text beneath fade in
+  Have sections wipe/fade from left to right when scrolling to their sections
+
+*/
+
+import { useEffect } from 'react'
+
 function SustainabilityPage() {
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible')
+          obs.unobserve(entry.target)
+        }
+      }),
+      { threshold: 0.12 }
+    )
+    document.querySelectorAll('.sustain-banner-wrap, .sustain-summary, .sustain-practice-grid').forEach(el => obs.observe(el))
+    return () => obs.disconnect()
+  }, [])
+
   return (
     <main className="sustain-page">
       <div className="sustain-header"><p><strong>SUSTAINABLE PRACTICES</strong></p></div>
 
       <div className="sustain-banner-wrap">
-        <img className="sustain-banner-img" src="/Media/Gallery/Sustainability_Banner_01.webp" alt="Sustainable Practices" />
+        <img className="sustain-banner-img" src="/Media/Gallery/Sustainability/Sustainability_Banner_02.JPG" alt="Sustainable Practices" />
       </div>
 
       <div className="sustain-summary">

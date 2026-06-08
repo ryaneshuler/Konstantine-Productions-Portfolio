@@ -1,3 +1,8 @@
+/*
+   Add "WATCH FILM" button to all film pages that have full film available online
+   Also make "WATCH FILM" button visible on Paint Me Blue page
+*/
+
 import { useState, useEffect, useRef } from 'react'
 
 const galleryImages = [

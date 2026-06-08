@@ -157,8 +157,8 @@ function PaintMeBlue() {
       </section>
 
       {/* Watch Film */}
-      <div className="below-demo" style={{ paddingTop: 0, marginTop: '-60px', marginBottom: '35px' }}>
-        <a target="_blank" rel="noopener noreferrer" href="http://youtube.com/watch?v=PvpnvNCqhmU&t=3s"><button style={{ fontFamily: 'komu b', fontSize: '1.2em', letterSpacing: '0.08em', fontWeight: 200, border: '2.5px solid #496e2b' }}>WATCH FILM</button></a>
+      <div className="rt-watch-btn-wrap">
+        <a href="http://youtube.com/watch?v=PvpnvNCqhmU&t=3s" target="_blank" rel="noopener noreferrer" className="rt-watch-btn">WATCH FILM</a>
       </div>
 
       {/* Synopsis */}

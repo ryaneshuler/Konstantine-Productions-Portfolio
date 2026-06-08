@@ -2,18 +2,26 @@ import { useEffect } from 'react'
 
 function DocumentariesPage() {
   useEffect(() => {
-    const projects = document.querySelectorAll('.ow-project')
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible')
-          observer.unobserve(entry.target)
-        }
-      }),
-      { threshold: 0.1 }
-    )
-    projects.forEach(el => observer.observe(el))
-    return () => observer.disconnect()
+    const makeObserver = (threshold) => {
+      const obs = new IntersectionObserver(
+        (entries) => entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible')
+            obs.unobserve(entry.target)
+          }
+        }),
+        { threshold }
+      )
+      return obs
+    }
+
+    const bannerObs = makeObserver(0.1)
+    const fadeObs = makeObserver(0.15)
+
+    document.querySelectorAll('.ow-project').forEach(el => bannerObs.observe(el))
+    document.querySelectorAll('.ow-video-wrap, .ow-credits, .ow-ext-btn-wrap, .doc-credits').forEach(el => fadeObs.observe(el))
+
+    return () => { bannerObs.disconnect(); fadeObs.disconnect() }
   }, [])
 
   return (

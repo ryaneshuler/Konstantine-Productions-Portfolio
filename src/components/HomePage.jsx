@@ -21,7 +21,77 @@ const galleryImages = [
 
 function HomePage() {
   const thumbnailsRef = useRef(null)
+  const missionTextRef = useRef(null)
+  const videoDemoRef = useRef(null)
+  const belowDemoRef = useRef(null)
+  const gallerySlideshowRef = useRef(null)
+  const ctaBannerImgRef = useRef(null)
   const [currentSlide, setCurrentSlide] = useState(0)
+
+  // Gallery slideshow + thumbnails slide in on scroll
+  useEffect(() => {
+    const targets = [gallerySlideshowRef.current, thumbnailsRef.current].filter(Boolean)
+    const observers = targets.map(el => {
+      const observer = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) { el.classList.add('visible'); observer.disconnect() } },
+        { threshold: 0.12 }
+      )
+      observer.observe(el)
+      return observer
+    })
+    return () => observers.forEach(o => o.disconnect())
+  }, [])
+
+  // CTA banner wipe reveal on scroll (scroll listener avoids clip-path breaking IntersectionObserver)
+  useEffect(() => {
+    const el = ctaBannerImgRef.current
+    if (!el) return
+    const check = () => {
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.85) {
+        el.classList.add('visible')
+        window.removeEventListener('scroll', check)
+      }
+    }
+    window.addEventListener('scroll', check, { passive: true })
+    check()
+    return () => window.removeEventListener('scroll', check)
+  }, [])
+
+  // Video demo fade-up on scroll
+  useEffect(() => {
+    const el = videoDemoRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { el.classList.add('visible'); observer.disconnect() } },
+      { threshold: 0.12 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  // Below-demo buttons slide in from sides on scroll
+  useEffect(() => {
+    const el = belowDemoRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { el.classList.add('visible'); observer.disconnect() } },
+      { threshold: 0.3 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  // Mission text fly-in on scroll
+  useEffect(() => {
+    const el = missionTextRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { el.classList.add('visible'); observer.disconnect() } },
+      { threshold: 0.3 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
 
   // Gallery auto-advance
   useEffect(() => {
@@ -72,7 +142,9 @@ function HomePage() {
       {/* Top parallax banner */}
       <div className="banner">
         <p className="banner-text">
-          SUSTAINABILITY<br />MEETS<br />CREATIVITY
+          <span className="banner-word banner-word--1">SUSTAINABILITY</span>
+          <span className="banner-word banner-word--2">MEETS</span>
+          <span className="banner-word banner-word--3">CREATIVITY</span>
         </p>
         <div
           className="full-width-container home-banner-fixed"
@@ -85,7 +157,7 @@ function HomePage() {
       {/* Demo reel */}
       <div className="demo-reel">
         <h1 className="demo-text" style={{ color: "black" }}>DEMO REEL</h1>
-        <div className="video-demo">
+        <div className="video-demo about-fade-img" ref={videoDemoRef}>
           <div className="vimeo-wrapper">
             <iframe
               src="https://player.vimeo.com/video/568945302"
@@ -96,7 +168,7 @@ function HomePage() {
             ></iframe>
           </div>
         </div>
-        <div className="below-demo">
+        <div className="below-demo" ref={belowDemoRef}>
           <Link to="/narratives"><button>NARRATIVES</button></Link>
           <Link to="/commercials"><button>COMMERCIALS</button></Link>
           <Link to="/documentaries"><button>DOCUMENTARIES</button></Link>
@@ -106,7 +178,7 @@ function HomePage() {
 
       {/* Mission statement parallax banner */}
       <div className="mission-statement">
-        <div className="mission-text">
+        <div className="mission-text" ref={missionTextRef}>
           <h1 className="mission-header">KONSTANTINE PRODUCTIONS...</h1>
           <p className="mission-description">
             …is an NYC-based, full-service production company with an eco-conscious mission. We create a range
@@ -118,15 +190,15 @@ function HomePage() {
         </div>
         <div
           className="full-width-container home-banner-fixed"
-          style={{ backgroundImage: "url('/Media/Gallery/AriRyan2_New+Edit.webp')" }}
+          style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.45)), url('/Media/Gallery/Sustainability_Banner_01.webp')" }}
           role="img"
           aria-label="Behind the scenes of 'Remember/Tomorrow'"
         />
       </div>
 
       {/* Gallery slideshow */}
-      <div className="home-gallery">
-        <div className="gallery-slideshow" style={{ cursor: 'pointer' }} onClick={() => openLightbox(currentSlide)}>
+      <div className="home-gallery home-gallery--animated">
+        <div className="gallery-slideshow" ref={gallerySlideshowRef} style={{ cursor: 'pointer' }} onClick={() => openLightbox(currentSlide)}>
           {galleryImages.map((img, i) => (
             <div
               key={img.src}
@@ -161,10 +233,10 @@ function HomePage() {
       </div>
 
       {/* CTA parallax banner */}
-      <div className="cta-banner">
+      <div className="cta-banner wipe-left-right" ref={ctaBannerImgRef}>
         <div
           className="full-width-container home-banner-fixed"
-          style={{ backgroundImage: "url('/Media/Gallery/DSC01892.webp')" }}
+          style={{ backgroundImage: "url('/Media/Gallery/Home/MAP_Collaborate_01.jpg')" }}
           role="img"
           aria-label="Let's Collaborate"
         />

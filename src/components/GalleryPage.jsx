@@ -1,23 +1,20 @@
 import { useState, useEffect } from 'react'
 
+/* 
+  Add Gallery header to top of this page
+  Add banner wipes from left to right, header and descriptor fade in at same time after, and have gallery sections fade in
+  Get rid of photo of Nate in R/T grid
+  Paint Me Blue
+  Mac N Beth (NEW)
+  KOP
+  Elder Sisters Apothecary
+  Zeeta Body
+  Sunflowers and Twists
+  Remember/Tomorrow
+*/
+
 const sections = [
-  {
-    title: 'ZEETA BODY\nPRODUCT VIDEOS',
-    credit: 'BTS Stills by Lloyd Hembrador',
-    banner: '/Media/Gallery/DSC01876.webp',
-    images: [
-      '/Media/Gallery/Grids/Zeeta Body/Zeeta_Grid_01.webp',
-      '/Media/Gallery/Grids/Zeeta Body/Zeeta_Grid_02.webp',
-      '/Media/Gallery/Grids/Zeeta Body/Zeeta_Grid_03.webp',
-      '/Media/Gallery/Grids/Zeeta Body/Zeeta_Grid_04.webp',
-      '/Media/Gallery/Grids/Zeeta Body/Zeeta_Grid_05.webp',
-      '/Media/Gallery/Grids/Zeeta Body/Zeeta_Grid_06.webp',
-      '/Media/Gallery/Grids/Zeeta Body/Zeeta_Grid_07.webp',
-      '/Media/Gallery/Grids/Zeeta Body/Zeeta_Grid_08.webp',
-      '/Media/Gallery/Grids/Zeeta Body/Zeeta_Grid_09.webp',
-    ],
-  },
-  {
+    {
     title: 'PAINT ME BLUE (SHORT FILM)',
     titleDisplay: <><em>PAINT ME BLUE</em> (SHORT FILM)</>,
     credit: 'BTS Stills by Erin Lamar',
@@ -41,20 +38,21 @@ const sections = [
     ],
   },
   {
-    title: 'SUNFLOWERS & TWISTS (PROMO VIDEO)',
-    credit: 'BTS Stills by Lloyd Hembrador',
-    banner: '/Media/Gallery/Gallery_Banner_SunflowersTwists.webp',
-    images: [
-      '/Media/Gallery/Grids/Sunflowers and Twists/SunflowersTwists_Grid_01.webp',
-      '/Media/Gallery/Grids/Sunflowers and Twists/SunflowersTwists_Grid_02.webp',
-      '/Media/Gallery/Grids/Sunflowers and Twists/SunflowersTwists_Grid_03.webp',
-      '/Media/Gallery/Grids/Sunflowers and Twists/SunflowersTwists_Grid_04.webp',
-      '/Media/Gallery/Grids/Sunflowers and Twists/SunflowersTwists_Grid_05.webp',
-      '/Media/Gallery/Grids/Sunflowers and Twists/SunflowersTwists_Grid_06.webp',
-      '/Media/Gallery/Grids/Sunflowers and Twists/SunflowersTwists_Grid_07.webp',
-      '/Media/Gallery/Grids/Sunflowers and Twists/SunflowersTwists_Grid_08.webp',
-      '/Media/Gallery/Grids/Sunflowers and Twists/SunflowersTwists_Grid_09.webp',
-    ],
+      title: 'MAC N BETH (SHORT FILM)',
+      titleDisplay: <><em>MAC N BETH</em> (SHORT FILM)</>,
+      credit: 'BTS Stills by Cooper Gordon',
+      banner: '/Media/Gallery/Narratives/MNB/Narratives_MNB_BTS_03.webp',
+      images: [
+        '/Media/Gallery/Narratives/MNB/Narratives_MNB_BTS_01.webp',
+        '/Media/Gallery/Narratives/MNB/Narratives_MNB_BTS_02.webp',
+        '/Media/Gallery/Narratives/MNB/Narratives_MNB_BTS_03.webp',
+        '/Media/Gallery/Narratives/MNB/Narratives_MNB_BTS_04.webp',
+        '/Media/Gallery/Narratives/MNB/Narratives_MNB_BTS_05.webp',
+        '/Media/Gallery/Narratives/MNB/Narratives_MNB_BTS_06.webp',
+        '/Media/Gallery/Narratives/MNB/Narratives_MNB_BTS_07.webp',
+        '/Media/Gallery/Narratives/MNB/Narratives_MNB_BTS_08.webp',
+        '/Media/Gallery/Narratives/MNB/Narratives_MNB_BTS_09.jpg',
+      ],
   },
   {
     title: 'KISSING OTHER PEOPLE (DIGITAL SERIES)',
@@ -98,6 +96,38 @@ const sections = [
     ],
   },
   {
+    title: 'ZEETA BODY\nPRODUCT VIDEOS',
+    credit: 'BTS Stills by Lloyd Hembrador',
+    banner: '/Media/Gallery/DSC01876.webp',
+    images: [
+      '/Media/Gallery/Grids/Zeeta Body/Zeeta_Grid_01.webp',
+      '/Media/Gallery/Grids/Zeeta Body/Zeeta_Grid_02.webp',
+      '/Media/Gallery/Grids/Zeeta Body/Zeeta_Grid_03.webp',
+      '/Media/Gallery/Grids/Zeeta Body/Zeeta_Grid_04.webp',
+      '/Media/Gallery/Grids/Zeeta Body/Zeeta_Grid_05.webp',
+      '/Media/Gallery/Grids/Zeeta Body/Zeeta_Grid_06.webp',
+      '/Media/Gallery/Grids/Zeeta Body/Zeeta_Grid_07.webp',
+      '/Media/Gallery/Grids/Zeeta Body/Zeeta_Grid_08.webp',
+      '/Media/Gallery/Grids/Zeeta Body/Zeeta_Grid_09.webp',
+    ],
+  },
+  {
+    title: 'SUNFLOWERS & TWISTS (PROMO VIDEO)',
+    credit: 'BTS Stills by Lloyd Hembrador',
+    banner: '/Media/Gallery/Gallery_Banner_SunflowersTwists.webp',
+    images: [
+      '/Media/Gallery/Grids/Sunflowers and Twists/SunflowersTwists_Grid_01.webp',
+      '/Media/Gallery/Grids/Sunflowers and Twists/SunflowersTwists_Grid_02.webp',
+      '/Media/Gallery/Grids/Sunflowers and Twists/SunflowersTwists_Grid_03.webp',
+      '/Media/Gallery/Grids/Sunflowers and Twists/SunflowersTwists_Grid_04.webp',
+      '/Media/Gallery/Grids/Sunflowers and Twists/SunflowersTwists_Grid_05.webp',
+      '/Media/Gallery/Grids/Sunflowers and Twists/SunflowersTwists_Grid_06.webp',
+      '/Media/Gallery/Grids/Sunflowers and Twists/SunflowersTwists_Grid_07.webp',
+      '/Media/Gallery/Grids/Sunflowers and Twists/SunflowersTwists_Grid_08.webp',
+      '/Media/Gallery/Grids/Sunflowers and Twists/SunflowersTwists_Grid_09.webp',
+    ],
+  },
+  {
     title: 'REMEMBER/TOMORROW (SHORT FILM)',
     credit: 'BTS Stills by Mecca MeDina',
     banner: '/Media/Gallery/Gallery_Banner_RememberTomorrow.webp',
@@ -111,7 +141,6 @@ const sections = [
       '/Media/Gallery/Grids/Remember Tomorrow/RT_Grid_07.webp',
       '/Media/Gallery/Grids/Remember Tomorrow/RT_Grid_08.webp',
       '/Media/Gallery/Grids/Remember Tomorrow/RT_Grid_09.webp',
-      '/Media/Gallery/Grids/Remember Tomorrow/RT_Grid_10.webp',
     ],
   },
 ]
@@ -126,6 +155,26 @@ function GalleryPage() {
   const lightboxNext = () => setLightbox(l => ({ ...l, idx: (l.idx + 1) % l.images.length }))
 
   useEffect(() => {
+    const makeObserver = (threshold) => {
+      const obs = new IntersectionObserver(
+        (entries) => entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible')
+            obs.unobserve(entry.target)
+          }
+        }),
+        { threshold }
+      )
+      return obs
+    }
+    const sectionObs = makeObserver(0.1)
+    const gridObs = makeObserver(0.1)
+    document.querySelectorAll('.pg-section').forEach(el => sectionObs.observe(el))
+    document.querySelectorAll('.pg-photo-grid').forEach(el => gridObs.observe(el))
+    return () => { sectionObs.disconnect(); gridObs.disconnect() }
+  }, [])
+
+  useEffect(() => {
     if (!lightbox) return
     const onKey = (e) => {
       if (e.key === 'Escape') closeLightbox()
@@ -138,16 +187,19 @@ function GalleryPage() {
 
   return (
     <main className="pg-page">
+      <div className="ow-header"><p><strong>GALLERY</strong></p></div>
       {sections.map((section) => (
         <div key={section.title} className="pg-section">
           {/* Banner */}
-          <div
-            className="pg-banner home-banner-fixed"
-            style={{ backgroundImage: `url('${section.banner}')` }}
-          >
-            <div className="pg-banner-overlay">
-              <p className="pg-banner-title">{section.titleDisplay ?? section.title}</p>
-              <p className="pg-banner-credit">{section.credit}</p>
+          <div className="pg-banner-wrap">
+            <div
+              className="pg-banner home-banner-fixed"
+              style={{ backgroundImage: `url('${section.banner}')` }}
+            >
+              <div className="pg-banner-overlay">
+                <p className="pg-banner-title">{section.titleDisplay ?? section.title}</p>
+                <p className="pg-banner-credit">{section.credit}</p>
+              </div>
             </div>
           </div>
 

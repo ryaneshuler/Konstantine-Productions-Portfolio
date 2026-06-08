@@ -46,6 +46,21 @@ body {
   letter-spacing: 0.12em;
 }
 
+@keyframes banner-word-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.banner-word {
+  display: block;
+  opacity: 0;
+  animation: banner-word-in 0.7s ease forwards;
+}
+
+.banner-word--1 { animation-delay: 0.1s; }
+.banner-word--2 { animation-delay: 0.3s; }
+.banner-word--3 { animation-delay: 0.5s; }
+
 /* make the .full-width-container a flex container too, to center its children */
 .full-width-container {
   position: relative;   /* allows absolutely positioned children if you prefer */
@@ -73,11 +88,11 @@ body {
 .mission-statement .full-width-container,
 .cta-banner .full-width-container {
   height: 100vh;
-  max-height: 850px;
+  max-height: 650px;
 }
 
 .banner .full-width-container {
-  height: 55vh;
+  height: 65vh;
   max-height: 650px;
 }
 
@@ -105,6 +120,9 @@ body {
   margin: 0;
   /* text-shadow: 0 6px 18px rgba(0,0,0,0.6); */
   letter-spacing: 0.1em;
+  transform: translateX(-80px);
+  opacity: 0;
+  transition: transform 0.8s ease, opacity 0.8s ease;
 }
 
 .mission-description {
@@ -112,12 +130,21 @@ body {
   text-align: center;
   font-family: 'Montserrat', 'Abel', 'Arial', sans-serif;
   font-weight: 500;
-  font-size: clamp(22px, 1.4vw, 18px);
+  font-size: clamp(13px, 1.4vw, 18px);
   line-height: 2.3em;
   width: 85%;
   max-width: 900px;
   margin: 0;
   text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  transform: translateX(80px);
+  opacity: 0;
+  transition: transform 0.8s ease 0.15s, opacity 0.8s ease 0.15s;
+}
+
+.mission-text.visible .mission-header,
+.mission-text.visible .mission-description {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 /* optional breakpoints to tweak height on small/large screens */
@@ -466,6 +493,33 @@ nav a:focus {
   border-color: #496e2b;
 }
 
+.below-demo > a:nth-child(1),
+.below-demo > a:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.below-demo > a:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.below-demo > a:nth-child(3),
+.below-demo > a:nth-child(4) {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.below-demo > a:nth-child(4) {
+  transition-delay: 0.1s;
+}
+
+.below-demo.visible > a {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 /* ── Home gallery slideshow ── */
 
 .home-gallery {
@@ -580,6 +634,29 @@ nav a:focus {
 
 .gallery-prev { left: 16px; }
 .gallery-next { right: 16px; }
+
+/* Gallery scroll-in animations — home page only */
+.home-gallery--animated .gallery-slideshow {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.home-gallery--animated .gallery-slideshow.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.home-gallery--animated .gallery-thumbnails {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.65s ease 0.15s, transform 0.65s ease 0.15s;
+}
+
+.home-gallery--animated .gallery-thumbnails.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
 
 .gallery-thumbnails {
   display: flex;
@@ -758,8 +835,8 @@ nav a:focus {
 }
 
 .cta-button:hover {
-  background: #fff;
-  color: #111;
+  background: #496e2b;
+  color: #fff;
 }
 
 /* ── Footer ── */
@@ -863,14 +940,6 @@ nav a:focus {
   align-items: center;
   margin-top: 0px;
   margin-bottom: 28px;
-  opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
-}
-
-.ow-project.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .ow-banner-link {
@@ -892,6 +961,12 @@ nav a:focus {
 .ow-banner-img {
   width: 100%;
   display: block;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.1s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+.ow-project.visible .ow-banner-img {
+  clip-path: inset(0 0% 0 0);
 }
 
 .ow-banner-img--tall {
@@ -918,6 +993,29 @@ nav a:focus {
   margin: 0;
   text-shadow: 0 4px 16px rgba(0,0,0,0.7);
   overflow-wrap: break-word;
+  opacity: 0;
+  transition: opacity 0.7s ease 0.85s;
+}
+
+.ow-project.visible .ow-banner-text p {
+  opacity: 1;
+}
+
+.ow-project--fade .ow-banner-img {
+  clip-path: none;
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.ow-project--fade.visible .ow-banner-img {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ow-project--fade .ow-banner-text p,
+.ow-project--fade .ow-banner-text a p {
+  transition: opacity 0.65s ease 0.2s;
 }
 
 .ow-banner-text a {
@@ -932,8 +1030,23 @@ nav a:focus {
 .ow-video-wrap {
   width: min(950px, 90%);
   margin-top: 16px;
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
   margin-bottom: 16px;
   aspect-ratio: 16 / 9;
+}
+
+.ow-video-wrap.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ow-credits.visible,
+.ow-ext-btn-wrap.visible,
+.doc-credits.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .ow-video-wrap-esa {
@@ -960,19 +1073,45 @@ nav a:focus {
   width: min(1000px, 100%);
   padding: 0px 16px 0;
   box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
   font-family: Arial, sans-serif;
   text-align: center;
 }
 
 .ow-credits p {
   margin: 4px 0;
-  font-size: clamp(20px, 1.2vw, 15px);
+  font-size: clamp(13px, 1.2vw, 18px);
   font-family: Arial, sans-serif;
+}
+
+.ow-showcase-btn {
+  display: inline-block;
+  margin: 12px 0 24px;
+  background-color: #ffffff;
+  color: #496e2b;
+  border: 2px solid #496e2b;
+  border-radius: 5px;
+  font-size: 1.2em;
+  font-weight: 700;
+  padding: .8em 2em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: .2s;
+  font-family: 'komu b', 'Abel', Arial, sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.ow-showcase-btn:hover,
+.ow-showcase-btn:focus-visible {
+  background-color: #496e2b;
+  color: #ffffff;
 }
 
 .ow-credits-header {
   margin-bottom: 8px !important;
-  font-size: clamp(26px, 1.3vw, 16px) !important;
+  font-size: clamp(14px, 1.3vw, 20px) !important;
   color: #525252;
   letter-spacing: 0.04em;
 }
@@ -981,6 +1120,9 @@ nav a:focus {
   margin-top: 16px;
   display: flex;
   justify-content: center;
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
 }
 
 .ow-ext-btn {
@@ -1004,6 +1146,9 @@ nav a:focus {
 .doc-credits {
   margin-top: 20px;
   margin-bottom: -40px;
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
   font-size: clamp(20px, 1.2vw, 15px);
   font-family: Arial, sans-serif;
   text-align: center;
@@ -1175,6 +1320,15 @@ a:has(.about-btn) {
   clip-path: inset(0 0 0 0);
 }
 
+.wipe-left-right {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.1s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+.wipe-left-right.visible {
+  clip-path: inset(0 0% 0 0);
+}
+
 /* Our Team */
 .about-team {
   margin-bottom: 80px;
@@ -1235,6 +1389,24 @@ a:has(.about-btn) {
   margin-bottom: 20px;
 }
 
+.pg-banner-wrap {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.1s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+.pg-section.visible .pg-banner-wrap {
+  clip-path: inset(0 0% 0 0);
+}
+
+.pg-banner-overlay p {
+  opacity: 0;
+  transition: opacity 0.7s ease 0.85s;
+}
+
+.pg-section.visible .pg-banner-overlay p {
+  opacity: 1;
+}
+
 .pg-banner {
   position: relative;
   width: 100%;
@@ -1284,6 +1456,14 @@ a:has(.about-btn) {
   margin: 16px auto 60px;
   padding: 0 16px;
   box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.pg-photo-grid.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .pg-photo-grid-item {
@@ -1326,6 +1506,14 @@ a:has(.about-btn) {
   display: flex;
   justify-content: center;
   margin-bottom: 32px;
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.sustain-banner-wrap.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .sustain-banner-img {
@@ -1344,6 +1532,14 @@ a:has(.about-btn) {
   font-size: clamp(14px, 1.3vw, 17px);
   font-family: Arial, sans-serif;
   line-height: 1.65;
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease 0.2s, transform 0.65s ease 0.2s;
+}
+
+.sustain-summary.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .sustain-practice-grid {
@@ -1359,6 +1555,9 @@ a:has(.about-btn) {
   font-size: clamp(36px, 1.3vw, 48px);
   font-family: 'Komu B', Arial, sans-serif;
   letter-spacing: 0.04em;
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
   line-height: 1.4;
   margin: 0;
 }
@@ -1373,6 +1572,19 @@ a:has(.about-btn) {
 
 .sustain-practice-items li {
   margin-bottom: 12px;
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.sustain-practice-items li:nth-child(1) { transition-delay: 0.25s; }
+.sustain-practice-items li:nth-child(2) { transition-delay: 0.45s; }
+.sustain-practice-items li:nth-child(3) { transition-delay: 0.65s; }
+
+.sustain-practice-grid.visible .sustain-practice-header,
+.sustain-practice-grid.visible .sustain-practice-items li {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* ─────────────────────────────────────────
@@ -1392,6 +1604,7 @@ a:has(.about-btn) {
   justify-content: center;
   margin-bottom: 40px;
   background-image: url('/Media/Gallery/Crew_Edit.webp');
+  animation: wipe-left-right-reveal 1.1s cubic-bezier(0.77, 0, 0.18, 1) forwards;
 }
 
 .contact-hero-text {
@@ -1405,6 +1618,8 @@ a:has(.about-btn) {
   text-align: center;
   text-shadow: 0 4px 20px rgba(0,0,0,0.55);
   margin: 0;
+  opacity: 0;
+  animation: banner-word-in 0.7s ease forwards 0.8s;
 }
 
 .contact-intro {
@@ -1548,6 +1763,12 @@ a:has(.about-btn) {
   width: 100%;
   height: 65vh;
   max-height: 700px;
+  animation: wipe-left-right-reveal 1.1s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+}
+
+@keyframes wipe-left-right-reveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
 }
 
 .pmb-banner-text {
@@ -1567,6 +1788,8 @@ a:has(.about-btn) {
   margin: 0;
   letter-spacing: 0.1em;
   text-shadow: 0 4px 20px rgba(0,0,0,0.7);
+  opacity: 0;
+  animation: banner-word-in 0.7s ease forwards 0.8s;
 }
 
 .pmb-banner-subtitle {
@@ -1576,13 +1799,15 @@ a:has(.about-btn) {
   font-weight: 800;
   letter-spacing: 0.08em;
   text-shadow: 0 3px 12px rgba(0,0,0,0.6);
+  opacity: 0;
+  animation: banner-word-in 0.7s ease forwards 0.8s;
 }
 
 .pmb-section {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 24px;
+  padding: 90px 24px;
   box-sizing: border-box;
   text-align: center;
 }
@@ -1597,6 +1822,7 @@ a:has(.about-btn) {
   width: min(1000px, 100%);
   margin: 0 auto;
   aspect-ratio: 16 / 9;
+  margin-bottom: -40px;
 }
 
 .pmb-vimeo-wrapper iframe {
@@ -1656,12 +1882,6 @@ a:has(.about-btn) {
   height: auto;
   display: block;
   margin: 0 auto;
-  clip-path: inset(0 100% 0 0);
-  transition: clip-path 1.2s cubic-bezier(0.77, 0, 0.18, 1);
-}
-
-.pmb-awards-img.pmb-awards-reveal {
-  clip-path: inset(0 0% 0 0);
 }
 
 .pmb-gallery-grid {
@@ -1792,6 +2012,7 @@ a:has(.about-btn) {
   position: relative;
   width: 100%;
   overflow: hidden;
+  animation: wipe-left-right-reveal 1.1s cubic-bezier(0.77, 0, 0.18, 1) forwards;
 }
 
 
@@ -1812,6 +2033,8 @@ a:has(.about-btn) {
   margin: 0;
   letter-spacing: 0.1em;
   text-shadow: 0 4px 20px rgba(0,0,0,0.7);
+  opacity: 0;
+  animation: banner-word-in 0.7s ease forwards 0.8s;
 }
 
 .rt-banner-subtitle {
@@ -1821,6 +2044,8 @@ a:has(.about-btn) {
   font-weight: 800;
   letter-spacing: 0.08em;
   text-shadow: 0 3px 12px rgba(0,0,0,0.6);
+  opacity: 0;
+  animation: banner-word-in 0.7s ease forwards 0.8s;
 }
 
 .rt-section {
@@ -1853,6 +2078,7 @@ a:has(.about-btn) {
 .rt-watch-btn-wrap {
   text-align: center;
   padding: 0 0 60px;
+  margin-top: 0px;
 }
 
 .rt-watch-btn {
@@ -1944,12 +2170,6 @@ a:has(.about-btn) {
   height: auto;
   display: block;
   margin: 0 auto;
-  clip-path: inset(0 100% 0 0);
-  transition: clip-path 1.2s cubic-bezier(0.77, 0, 0.18, 1);
-}
-
-.rt-awards.rt-awards-reveal {
-  clip-path: inset(0 0% 0 0);
 }
 
 .rt-credits-individual {
@@ -1963,4 +2183,104 @@ a:has(.about-btn) {
 
 @media (max-width: 700px) {
   .rt-gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ─────────────────────────────────────────
+   Global mobile responsive styles
+───────────────────────────────────────── */
+
+@media (max-width: 768px) {
+
+  /* Body border — keep the green frame but thinner on mobile */
+  body {
+    border-width: 10px;
+  }
+
+  /* HomePage — gallery slideshow shorter on mobile */
+  .gallery-slideshow {
+    height: 55vw;
+    max-height: 400px;
+  }
+
+  /* HomePage — tighten mission text fly-in distance on narrow screens */
+  .mission-header {
+    transform: translateX(-40px);
+  }
+  .mission-description {
+    transform: translateX(40px);
+  }
+
+  /* About page — story image too tall on mobile */
+  .about-section-img-wrap--story {
+    height: 420px;
+    max-height: 420px;
+  }
+
+  /* About page — team grid collapses to single column */
+  .about-team-row,
+  .about-team-row--bio-first {
+    grid-template-columns: 1fr;
+  }
+
+  /* Sustainability — practice grid collapses (fixed 220px col → full width label) */
+  .sustain-practice-grid {
+    grid-template-columns: 1fr;
+  }
+  .sustain-practice-label {
+    margin-bottom: 8px;
+  }
+
+  /* Narrative pages — reduce large section padding on mobile */
+  .pmb-section,
+  .rt-section {
+    padding: 36px 16px;
+  }
+
+  /* Narrative credits overlays — allow content to overflow if needed */
+  .pmb-credits,
+  .rt-credits {
+    height: auto;
+    min-height: 60vh;
+  }
+
+  /* Page headers — scale down the large 4em header */
+  .ow-header {
+    font-size: 2.5em;
+  }
+
+  /* Contact form — name/email row stacks vertically */
+  .contact-inputs--row {
+    flex-direction: column;
+  }
+
+  /* OW pages — tall banner images less imposing on mobile */
+  .ow-banner-img--tall {
+    height: 260px;
+  }
+
+  /* Gallery page — banner height reduced, grid to 2 columns */
+  .pg-banner {
+    height: 260px;
+  }
+  .pg-photo-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Narrative gallery grids — already go to 2-col at 700px, handled above */
+
+}
+
+@media (max-width: 480px) {
+
+  /* Single-column grids on very small screens */
+  .pg-photo-grid {
+    grid-template-columns: 1fr;
+  }
+  .pmb-gallery-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .rt-gallery-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
 }

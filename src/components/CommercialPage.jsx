@@ -2,18 +2,26 @@ import { useEffect } from 'react'
 
 function CommercialPage() {
   useEffect(() => {
-    const projects = document.querySelectorAll('.ow-project')
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible')
-          observer.unobserve(entry.target)
-        }
-      }),
-      { threshold: 0.1 }
-    )
-    projects.forEach(el => observer.observe(el))
-    return () => observer.disconnect()
+    const makeObserver = (threshold) => {
+      const obs = new IntersectionObserver(
+        (entries) => entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible')
+            obs.unobserve(entry.target)
+          }
+        }),
+        { threshold }
+      )
+      return obs
+    }
+
+    const bannerObs = makeObserver(0.1)
+    const fadeObs = makeObserver(0.15)
+
+    document.querySelectorAll('.ow-project').forEach(el => bannerObs.observe(el))
+    document.querySelectorAll('.ow-video-wrap, .ow-credits').forEach(el => fadeObs.observe(el))
+
+    return () => { bannerObs.disconnect(); fadeObs.disconnect() }
   }, [])
 
   return (
@@ -51,6 +59,31 @@ function CommercialPage() {
         </div>
       </div>
 
+      {/* Stems Brooklyn */}
+      <div className="ow-project">
+        <div className="ow-banner-wrap">
+          <div className="ow-banner-text">
+            <p><strong>STEMS BROOKLYN</strong></p>
+          </div>
+          <img className="ow-banner-img" src="/Media/Gallery/Our Works/Commercials/Images/OurWorks_Banner_Stems_01.webp" alt="Stems Brooklyn" />
+        </div>
+        <div className="ow-video-wrap">
+          <iframe
+            src="https://player.vimeo.com/video/706343461"
+            frameBorder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+            title="Stems Brooklyn"
+          ></iframe>
+        </div>
+        <div className="ow-credits">
+          <p className="ow-credits-header"><strong>Key Credits</strong></p>
+          <p><strong>Directed, Produced &amp; Shot by:</strong> Ari Veach, Ryan Shuler</p>
+          <p><strong>Featuring:</strong> Suzanna Cameron</p>
+          <p><strong>Edited by:</strong> Ryan Shuler</p>
+        </div>
+      </div>
+
       {/* Sunflowers and Twists */}
       <div className="ow-project">
         <div className="ow-banner-wrap">
@@ -77,31 +110,6 @@ function CommercialPage() {
         </div>
       </div>
 
-      {/* Stems Brooklyn */}
-      <div className="ow-project">
-        <div className="ow-banner-wrap">
-          <div className="ow-banner-text">
-            <p><strong>STEMS BROOKLYN</strong></p>
-          </div>
-          <img className="ow-banner-img" src="/Media/Gallery/Our Works/Commercials/Images/OurWorks_Banner_Stems_01.webp" alt="Stems Brooklyn" />
-        </div>
-        <div className="ow-video-wrap">
-          <iframe
-            src="https://player.vimeo.com/video/706343461"
-            frameBorder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowFullScreen
-            title="Stems Brooklyn"
-          ></iframe>
-        </div>
-        <div className="ow-credits">
-          <p className="ow-credits-header"><strong>Key Credits</strong></p>
-          <p><strong>Directed, Produced &amp; Shot by:</strong> Ari Veach, Ryan Shuler</p>
-          <p><strong>Featuring:</strong> Suzanna Cameron</p>
-          <p><strong>Edited by:</strong> Ryan Shuler</p>
-        </div>
-      </div>
-
       {/* Zeeta Body */}
       <div className="ow-project">
         <div className="ow-banner-wrap">
@@ -119,6 +127,12 @@ function CommercialPage() {
             title="Zeeta Body"
           ></iframe>
         </div>
+        <a
+          className="ow-showcase-btn"
+          href="https://vimeo.com/showcase/8616254"
+          target="_blank"
+          rel="noopener noreferrer"
+        >VIEW ALL "ZEETA BODY" VIDEOS</a>
         <div className="ow-credits">
           <p className="ow-credits-header"><strong>Key Credits</strong></p>
           <p><strong>Directed, Written, and Produced by:</strong> Ryan Shuler, Ari Veach</p>
@@ -133,7 +147,7 @@ function CommercialPage() {
       <div className="ow-project">
         <div className="ow-banner-wrap">
           <div className="ow-banner-text">
-            <p><strong><em>ZEN PHOENIX YOGA</em> | PROMOTIONAL VIDEO</strong></p>
+            <p><strong><em>ZEN PHOENIX YOGA</em></strong></p>
           </div>
           <img className="ow-banner-img" src="/Media/Gallery/Our Works/Commercials/Images/OurWorks_Banner_ZenPhoenix_01.webp" alt="Zen Phoenix Yoga" />
         </div>
@@ -158,7 +172,7 @@ function CommercialPage() {
       <div className="ow-project">
         <div className="ow-banner-wrap">
           <div className="ow-banner-text">
-            <p><strong><em>STILL MOUNTAIN T'AI CHI &amp; CHI KUNG</em> | PROMO VIDEO</strong></p>
+            <p><strong><em>STILL MOUNTAIN T'AI CHI &amp; CHI KUNG</em></strong></p>
           </div>
           <img className="ow-banner-img" src="/Media/Gallery/Our Works/Commercials/Images/OurWorks_Banner_StillMountain_01.webp" alt="Still Mountain T'ai Chi" />
         </div>

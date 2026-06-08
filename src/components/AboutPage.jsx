@@ -1,3 +1,7 @@
+/*
+    Hyper link Film Shortage in Our Story section when mentioning Paint Me Blue release, and link to the film's page on Film Shortage if possible. Have it link to Film Shortage url, can be found on KP Insta.
+*/
+
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -93,9 +97,10 @@ function AboutPage() {
           <p className="about-img-caption">Ari Veach and Ryan Shuler (Co-Owners &amp; Producers) at Yonkers Film Festival in Yonkers, NY</p>
         </div>
         <div className="about-section-body">
-          <p><strong>Ryan and Ari met at Ithaca College, where they quickly became close friends and trusty collaborators. After graduating and moving to NYC, they continued to work together on various projects throughout the years — including the award-nominated short film, Remember/Tomorrow.</strong></p>
-          <p><strong>At the start of 2021, Ari and Ryan became official business partners. Combining their passions for filmmaking and sustainability, they conceived a new vision for Konstantine Productions and set off into a new chapter. Since then, they have Co-Directed &amp; Produced multiple productions including promotional videos and branded content for small businesses and non-profit organizations, short films and digital series, music videos, and more.</strong></p>
-          <p><strong>The collaborative duo are currently working on two short films in post-production which will soon enter the festival circuit — Paint Me Blue (narrative, written and directed by Ari) and ColorMind (documentary, directed by Ryan). They look forward to the future of these two personal films, as well as continuing to craft unique stories through film and video with eco-conscious practices.</strong></p>
+          <p><strong>Ryan and Ari met at Ithaca College, where they quickly became close friends and trusty collaborators. After graduating and moving to NYC, they continued to work together on various projects throughout the years — including the award-nominated short film, <em>Remember/Tomorrow</em>.</strong></p>
+          <p><strong>At the start of 2021, Ari and Ryan became official business partners. Combining their passions for filmmaking and sustainability, they conceived a new vision for Konstantine Productions and set off into a new chapter. Since then, they have Co-Directed &amp; Produced multiple productions including narrative and documentary short films, promotional content, digital series, and music videos.</strong></p>
+          {/* <p><strong>The collaborative duo are currently working on two short films in post-production which will soon enter the festival circuit — Paint Me Blue (narrative, written and directed by Ari) and ColorMind (documentary, directed by Ryan). They look forward to the future of these two personal films, as well as continuing to craft unique stories through film and video with eco-conscious practices.</strong></p> */}
+          <p><strong>The collaborative duo recently released the award-nominated short film, <em>Paint Me Blue</em> (written and directed by Ari) with <a href="https://filmshortage.com/dailyshortpicks/paint-me-blue/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGnHzRZXj4tfiusaCxQXmw7A-7AVvBr0jDQVlhZ4YUwPMT01XtSnHiyLqGo5Us_aem_B89Pk-O77hQGZZ402fFHiQ" target="_blank" rel="noopener noreferrer">Film Shortage</a>, and are working on the short documentary, <em>ColorMind</em> (directed by Ryan), currently in post-production. They look forward to developing bold, meaningful projects with collaborators old and new.</strong></p>
         </div>
       </div>
 
