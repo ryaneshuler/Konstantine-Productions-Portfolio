@@ -254,7 +254,7 @@ function PaintMeBlue() {
       </section>
 
       {/* Behind the Scenes Reel */}
-      <section className="pmb-section">
+      <section className="pmb-section bts-reel-section">
         <h2 className="pmb-section-header">BEHIND THE SCENES REEL</h2>
         <div className="pmb-vimeo-wrapper">
           <iframe

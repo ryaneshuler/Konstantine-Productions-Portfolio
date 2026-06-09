@@ -84,7 +84,7 @@ function SaltyCorn() {
 
       {/* Watch Film */}
       <div className="rt-watch-btn-wrap">
-        <a href="https://vimeo.com/166454248?share=copy&fl=cl&fe=ci" target="_blank" rel="noopener noreferrer" className="rt-watch-btn">WATCH FILM</a>
+        <a href="https://vimeo.com/166454248?share=copy&fl=cl&fe=ci" target="_blank" rel="noopener noreferrer" className="rt-watch-btn sc-watch-film-btn">WATCH FILM</a>
       </div>
 
       {/* Synopsis */}

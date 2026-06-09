@@ -189,7 +189,7 @@ function MacNBeth() {
 
       {/* Key Credits */}
       <div
-        className="pmb-credits home-banner-fixed credits-mnb"
+        className="pmb-credits home-banner-fixed credits-mnb mnb-credits"
         style={{ backgroundImage: "url('/Media/Gallery/Narratives/MNB/Narratives_MNB_KeyCredits_01.webp')" }}
       >
         <div className="pmb-credits-overlay">

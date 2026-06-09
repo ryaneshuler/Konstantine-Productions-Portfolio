@@ -49,7 +49,7 @@ function MusicVideosPage() {
             title="Boundary"
           ></iframe>
         </div>
-        <div className="ow-credits">
+        <div className="ow-credits ow-credits-boundary">
           <p className="ow-credits-header"><strong>Key Credits</strong></p>
           <p><strong><em>BOUNDARY Written and Performed by:</em></strong> Chloe Anne McElligot</p>
           <p><strong><em>Directed and Produced by:</em></strong> Ryan Shuler, Ari Veach</p>

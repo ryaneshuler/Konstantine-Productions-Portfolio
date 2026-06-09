@@ -49,7 +49,7 @@ function CommercialPage() {
             title="Elder Sisters Apothecary"
           ></iframe>
         </div>
-        <div className="ow-credits">
+        <div className="ow-credits ow-credits-esa">
           <p className="ow-credits-header"><strong>Key Credits</strong></p>
           <p><strong>Directed and Produced by:</strong> Ari Veach, Ryan Shuler</p>
           <p><strong>Featuring:</strong> Melannie Vásquez Lara, Lisa Brenner, Jackie Foley</p>

@@ -115,7 +115,7 @@ body {
 .mission-header {
   color: #fff;
   font-weight: 400;
-  font-size: clamp(18px, 5vw, 48px);
+  font-size: clamp(18px, 6vw, 48px);
   line-height: 1.4;
   margin: 0;
   /* text-shadow: 0 6px 18px rgba(0,0,0,0.6); */
@@ -130,7 +130,7 @@ body {
   text-align: center;
   font-family: 'Montserrat', 'Abel', 'Arial', sans-serif;
   font-weight: 500;
-  font-size: clamp(13px, 1.4vw, 18px);
+  font-size: clamp(15px, 1.4vw, 18px);
   line-height: 2.3em;
   width: 85%;
   max-width: 900px;
@@ -279,7 +279,7 @@ nav a:focus {
   nav {
     position: relative;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin: 10px 16px;
   }
@@ -306,6 +306,8 @@ nav a:focus {
     cursor: pointer;
     padding: 0;
     z-index: 100;
+    position: absolute;
+    right: 0;
   }
 
   .hamburger span {
@@ -438,7 +440,7 @@ nav a:focus {
 
 .demo-text {
   text-align: center;
-  font-size: clamp(18px, 4vw, 56px);
+  font-size: clamp(18px, 5vw, 56px);
 }
 
 .video-demo {
@@ -821,6 +823,7 @@ nav a:focus {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 3;
+  text-align: center;
   display: inline-block;
   background: transparent;
   color: #fff;
@@ -1116,6 +1119,11 @@ nav a:focus {
   letter-spacing: 0.04em;
 }
 
+@media (max-width: 768px) {
+  .ow-credits-esa      { margin-top: 25px; }
+  .ow-credits-boundary { margin-top: 25px; }
+}
+
 .ow-ext-btn-wrap {
   margin-top: 16px;
   display: flex;
@@ -1152,6 +1160,17 @@ nav a:focus {
   font-size: clamp(20px, 1.2vw, 15px);
   font-family: Arial, sans-serif;
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  .map-ext-btn {
+    font-size: 0.72em;
+    padding: 12px 14px;
+  }
+
+  .map-doc-credits {
+    font-size: clamp(11px, 3vw, 13px);
+  }
 }
 
 /* ─────────────────────────────────────────
@@ -1446,6 +1465,11 @@ a:has(.about-btn) {
   font-weight: 800;
   letter-spacing: 0.06em;
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  .pg-banner-title  { font-size: clamp(1.4rem, 5vw, 2.5rem); }
+  .pg-banner-credit { font-size: clamp(12px, 3vw, 15px); }
 }
 
 .pg-photo-grid {
@@ -1812,15 +1836,19 @@ a:has(.about-btn) {
   text-align: center;
 }
 
+.bts-reel-section {
+  margin-top: -40px;
+}
+
 .pmb-section-header {
-  font-size: clamp(20px, 4vw, 48px);
+  font-size: clamp(20px, 5vw, 48px);
   letter-spacing: 0.08em;
   margin: 0 0 40px;
 }
 
 .pmb-vimeo-wrapper {
   width: min(1000px, 100%);
-  margin: 0 auto;
+  margin: -20px auto;
   aspect-ratio: 16 / 9;
   margin-bottom: -40px;
 }
@@ -1854,7 +1882,7 @@ a:has(.about-btn) {
 
 .pmb-synopsis-header {
   color: #fff;
-  font-size: clamp(20px, 4vw, 48px);
+  font-size: clamp(32px, 5vw, 48px);
   letter-spacing: 0.1em;
   margin: 0 0 24px;
 }
@@ -1863,7 +1891,7 @@ a:has(.about-btn) {
   color: #fff;
   font-family: Arial, sans-serif;
   font-weight: bold;
-  font-size: clamp(16px, 1.8vw, 22px);
+  font-size: clamp(20px, 1.8vw, 22px);
   line-height: 1.9;
   max-width: 750px;
   margin: 0;
@@ -1945,7 +1973,7 @@ a:has(.about-btn) {
 
 .pmb-credits-header {
   color: #fff;
-  font-size: clamp(20px, 4vw, 48px);
+  font-size: clamp(20px, 5vw, 48px);
   font-family: 'Komu B', Arial, sans-serif;
   letter-spacing: 0.08em;
   margin: 0 0 24px;
@@ -1959,6 +1987,12 @@ a:has(.about-btn) {
   line-height: 2.2;
   margin: 0;
   /* text-shadow: 0 2px 8px rgba(0,0,0,0.5); */
+}
+
+/* Mac N Beth credits — desktop */
+.mnb-credits .pmb-credits-individual {
+  font-size: clamp(20px, 1.1vw, 28px);
+  line-height: 1.8;
 }
 
 @media (max-width: 700px) {
@@ -1988,9 +2022,9 @@ a:has(.about-btn) {
 .credits-awk   { background-position: 10% center; }
 
 /* Kissing Other People */
-.banner-kop    { background-position: center; }
+.banner-kop    { background-position: 30% center; }
 .synopsis-kop  { background-position: 20% center; }
-.credits-kop   { background-position: 10% center; }
+.credits-kop   { background-position: 20% center; }
 
 /* I Want You Baby */
 .banner-iwyb   { background-position: 40% center; }
@@ -2001,6 +2035,47 @@ a:has(.about-btn) {
 .banner-sc     { background-position: center; }
 .synopsis-sc   { background-position: center; }
 .credits-sc    { background-position: center; }
+
+/* ── Per-page banner position overrides — mobile ── */
+
+@media (max-width: 768px) {
+  /* Paint Me Blue */
+  .banner-pmb    { background-position: center; }
+  .synopsis-pmb  { background-position: 20% center; }
+  .credits-pmb   { background-position: 30% center; }
+
+  /* Mac N Beth */
+  .banner-mnb    { background-position: 35% center; }
+  .synopsis-mnb  { background-position: 35% center; }
+  .credits-mnb   { background-position: 95% center; }
+  .mnb-credits .pmb-credits-individual { font-size: clamp(13px, 1.1vw, 14px); line-height: 1.8; }
+
+  /* Remember / Tomorrow */
+  .rt-banner     { background-position: 80% center; }
+  .rt-synopsis   { background-position: center; }
+  .rt-credits    { background-position: 90% center; }
+
+  /* Awakening */
+  .banner-awk    { background-position: center; }
+  .synopsis-awk  { background-position: 45% center; }
+  .credits-awk   { background-position: 40% center; }
+
+  /* Kissing Other People */
+  .banner-kop    { background-position: 40% center; }
+  .synopsis-kop  { background-position: 35% center; }
+  .credits-kop   { background-position: 50% center; }
+
+  /* I Want You Baby */
+  .banner-iwyb   { background-position: 18% center; }
+  .synopsis-iwyb { background-position: 75% center; margin-top: 50px; }
+  .credits-iwyb  { background-position: 80% center; }
+
+  /* Salty Corn */
+  .banner-sc          { background-position: 60% center; }
+  .synopsis-sc        { background-position: center; }
+  .credits-sc         { background-position: 40% center; }
+  .sc-watch-film-btn  { margin-top: 20px; margin-bottom: -20px; }
+}
 
 /* ── Remember/Tomorrow Page ── */
 
@@ -2078,7 +2153,7 @@ a:has(.about-btn) {
 .rt-watch-btn-wrap {
   text-align: center;
   padding: 0 0 60px;
-  margin-top: 0px;
+  margin-top: -60px;
 }
 
 .rt-watch-btn {
@@ -2131,7 +2206,7 @@ a:has(.about-btn) {
 .rt-synopsis-body {
   color: #fff;
   font-family: 'Abel', Arial, sans-serif;
-  font-size: clamp(16px, 1.8vw, 22px);
+  font-size: clamp(20px, 1.8vw, 22px);
   line-height: 1.9;
   max-width: 750px;
   margin: 0;
@@ -2225,6 +2300,17 @@ a:has(.about-btn) {
   .about-team-row,
   .about-team-row--bio-first {
     grid-template-columns: 1fr;
+    padding: 0 24px;
+  }
+
+  /* Image on top for the bio-first row on mobile */
+  .about-team-row--bio-first .about-headshot {
+    order: -1;
+  }
+
+  /* Small gap below each headshot before the bio block */
+  .about-headshot {
+    margin-bottom: 10px;
   }
 
   /* Sustainability — practice grid collapses (fixed 220px col → full width label) */
@@ -2241,6 +2327,15 @@ a:has(.about-btn) {
     padding: 36px 16px;
   }
 
+  .rt-synopsis { background-position: 70% center; }
+  .banner-awk { background-position: 40% center; }
+
+  /* Narrative section headers — bump up on mobile */
+  .pmb-section-header,
+  .rt-section-header {
+    font-size: clamp(28px, 5vw, 48px);
+  }
+
   /* Narrative credits overlays — allow content to overflow if needed */
   .pmb-credits,
   .rt-credits {
@@ -2251,6 +2346,26 @@ a:has(.about-btn) {
   /* Page headers — scale down the large 4em header */
   .ow-header {
     font-size: 2.5em;
+  }
+
+  /* Watch Film button — reset negative margin on mobile */
+  .rt-watch-btn-wrap {
+    margin-top: 20px;
+  }
+
+  /* Footer — tighten spacing so all nav links fit on one line */
+  .site-footer {
+    padding: 2.5em 1em;
+  }
+  .footer-nav {
+    font-size: 12px;
+    letter-spacing: 0;
+  }
+  .footer-nav a {
+    letter-spacing: 0.04em;
+  }
+  .footer-sep {
+    padding: 0 0.3em;
   }
 
   /* Contact form — name/email row stacks vertically */

@@ -56,10 +56,10 @@ function DocumentariesPage() {
         </div>
         <div className="ow-ext-btn-wrap">
           <a target="_blank" rel="noopener noreferrer" href="https://vimeo.com/842507064?share=copy&fl=cl&fe=ci">
-            <button className="ow-ext-btn"><strong>VIEW FULL MAP X FLYING CLOUD INSTITUTE VIDEO</strong></button>
+            <button className="ow-ext-btn map-ext-btn"><strong>VIEW FULL MAP X FLYING CLOUD INSTITUTE VIDEO</strong></button>
           </a>
         </div>
-        <div className="doc-credits">
+        <div className="doc-credits map-doc-credits">
           <p className="ow-credits-header"><strong>Key Credits</strong></p>
           <p><strong>Directed, Produced, and Filmed by:</strong> Ari Veach, Ryan Shuler</p>
           <p><strong>Featuring:</strong> Angel Heffernan, Lili Atanacio &amp; the Students of Flying Cloud Institute</p>
