@@ -236,7 +236,7 @@ function HomePage() {
       <div className="cta-banner wipe-left-right" ref={ctaBannerImgRef}>
         <div
           className="full-width-container home-banner-fixed"
-          style={{ backgroundImage: "url('/Media/Gallery/Home/MAP_Collaborate_01.jpg')" }}
+          style={{ backgroundImage: "url('/Media/Gallery/Home/MAP_Collaborate_01.jpg')", backgroundPosition: "90%" }}
           role="img"
           aria-label="Let's Collaborate"
         />
