@@ -2196,6 +2196,11 @@ a:has(.about-btn) {
     border-width: 10px;
   }
 
+  /* background-attachment: fixed is broken on iOS Safari — fall back to scroll */
+  .home-banner-fixed {
+    background-attachment: scroll;
+  }
+
   /* HomePage — gallery slideshow shorter on mobile */
   .gallery-slideshow {
     height: 55vw;
