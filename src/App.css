@@ -2041,7 +2041,7 @@ a:has(.about-btn) {
 @media (max-width: 768px) {
   /* Paint Me Blue */
   .banner-pmb    { background-position: center; }
-  .synopsis-pmb  { background-position: 20% center; }
+  .synopsis-pmb  { background-position: 35% center; }
   .credits-pmb   { background-position: 30% center; }
 
   /* Mac N Beth */
